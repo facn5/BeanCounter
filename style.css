@@ -1,6 +1,6 @@
 * {
   font-family: Montserrat;
-  margin: 0px auto;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -13,6 +13,7 @@ header {
 header img {
   display: inline-block;
 }
+
 h1 {
   font-size: 3rem;
   font-weight: bolder;
@@ -27,9 +28,6 @@ h1 {
   background-color: hsl(52, 62%, 70%)
 }
 
-grid-container div img {
-}
-
 #calc-container {
   border: 1px solid black;
   border-radius: 1%;
@@ -41,7 +39,7 @@ grid-container div img {
   margin: 10px;
   padding: 10px;
   height: auto;
-  z-index: 10;
+  z-index: 9;
   background-color: hsl(52, 62%, 90%)
 }
 
@@ -73,7 +71,12 @@ grid-container div img {
   padding: 10px;
   margin: 10px;
   box-shadow: 2px 2px 2px 2px grey;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
+
+#nameTag img {}
 
 #bottom {
   min-height: 150px;

@@ -4,21 +4,19 @@
 <head>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Serif+SC" type="text/css">
-  <!-- <link rel="icon" href="favicon.ico"> -->
+  <link rel="icon" href="images/pepper.png"> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="A JavaScript calculator with 5 functions">
   <meta name="keywords" content="JavaScript, calculator, Founders and Coders">
-  <meta name="author" content="John and Ibrahem">
-  <!-- <script type="text/javascript" src="js.js"> -->
-  <!-- // <base href="#"/> -->
+  <meta name="author" content="John">
   <title>BeanCounter</title>
 </head>
 
 <body>
   <header>
-    <h1>BeanCounter JavaScript Calculator</h1>
+    <h1>BeanCounter Calculator</h1>
   </header>
   <div class="grid-container">
     <div id=¨col-one¨><img src="images/donkey.png" alt=""></div>
@@ -27,9 +25,9 @@
 
       <div id="result">0</div>
 
-      <div id="nameTag">BeanCounter</div>
+      <div id="nameTag">pepperPower</div>
 
-      <div class="numButtons" id="percent">%</div>
+      <div class="numButtons" id="squared">x<sup>2</sup></div>
       <div class="numButtons" id="clear">Clear</div>
 
       <div class="numButtons" id="1">1</div>
@@ -65,13 +63,6 @@
   let result = 0;
   let screen = document.getElementById("result");
 
-  // number pressed? add into staging screen. Screen full, shrink text
-  // operator pressed? add to staging screen
-  // (different operator pressed? change operator)
-  // function calcClick(e) {
-  // console.log("pressed");
-  // }
-
   function calcInput(calcKey) {
     if (calcKey == "calc-container") {
       return;
@@ -87,6 +78,11 @@
       screen.innerText = result;
     }
 
+    if (calcKey == "squared") {
+      result = eval(staging) * eval(staging);
+      screen.innerText = result;
+    }
+
     if (/[0-9*+-./]/.test(calcKey)) {
       if (screen.innerText == '0') {
         console.log("ok");
@@ -99,35 +95,13 @@
     }
   }
 
-    //Using Event Delegation: grab container, then check which element inside is clicked
-    document.getElementById("calc-container").addEventListener("click", function(e) {
-      if (e.target && e.target.nodeName == "DIV") {
-        calcInput(e.target.id);
-      }
-    });
+  //Using Event Delegation: grab container, then check which element inside is clicked
+  document.getElementById("calc-container").addEventListener("click", function(e) {
+    if (e.target && e.target.nodeName == "DIV") {
+      calcInput(e.target.id);
+    }
+  });
 
-    // other students using:
-    // buttons[i].onclick = function () {
-    // let button = this.innerHTML;
-    // }
-    //
-    // // eval
-
-    // function playSound(e) {
-    // const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    // const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    // if (!audio) return;
-    //
-    // key.classList.add('playing');
-    // audio.currentTime = 0;
-    // audio.play();
-
-    // const buttons = Array.from(document.querySelectorAll('.numButtons'));
-    // buttons.forEach(button => button.addEventListener('click', calcClick));
-
-    // const keys = Array.from(document.querySelectorAll('.key'));
-    // keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    // window.addEventListener('keydown', playSound);
 </script>
 
 </html>
