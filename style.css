@@ -16,7 +16,8 @@ header img {
 h1 {
   font-size: 3rem;
   font-weight: bolder;
-  text-shadow: 2px 2px 3px grey;
+  text-shadow: 4px 4px 4px black;
+  color: hsl(52, 62%, 90%)
 }
 
 .grid-container {
@@ -74,8 +75,8 @@ grid-container div img {
   box-shadow: 2px 2px 2px 2px grey;
 }
 
-footer {
-  height: 150px;
+#bottom {
+  min-height: 150px;
   background-color: #006847;
   width: 100%;
 }
