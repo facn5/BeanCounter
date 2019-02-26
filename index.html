@@ -20,16 +20,15 @@
   <header>
     <h1>BeanCounter JavaScript calculator</h1>
   </header>
-
   <div class="grid-container">
-    <div id=¨col-one¨>Column one</div>
+    <div id=¨col-one¨><img src="images/donkey.png" alt=""></div>
 
     <div id="calc-container">
 
       <div id="result">Result</div>
 
       <div id="nameTag">BeanCounter</div>
-      <!-- <div class="numButtons">Result</div> -->
+
       <div class="numButtons" id="percent">%</div>
       <div class="numButtons" id="clear">Clear</div>
 
@@ -54,10 +53,10 @@
       <div class="numButtons" id="+">+</div>
 
     </div>
-    <div>Column three</div>
+    <div id=¨col-three¨><img src="images/tequila worm.png" alt=""></div>
   </div>
 
-<footer><H1>Testing</H1></footer>
+  <footer></footer>
 
 </body>
 
@@ -74,11 +73,14 @@
   // }
 
   function calcInput(calcKey) {
-    if (calcKey == "calc-container") {return;}
+    if (calcKey == "calc-container") {
+      return;
+    }
 
     if (calcKey == "clear") {
       staging = 0;
-      screen.innerText = staging;}
+      screen.innerText = staging;
+    }
 
     if (calcKey == "=") {
       result = eval(staging);
