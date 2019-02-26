@@ -25,7 +25,7 @@
 
     <div id="calc-container">
 
-      <div id="result">Result</div>
+      <div id="result">0</div>
 
       <div id="nameTag">BeanCounter</div>
 
@@ -57,7 +57,6 @@
   </div>
 
   <footer></footer>
-
 </body>
 
 <script>
@@ -65,11 +64,11 @@
   let result = 0;
   let screen = document.getElementById("result");
 
-  // number pressed? add into staging screen.  Screen full, shrink text
+  // number pressed? add into staging screen. Screen full, shrink text
   // operator pressed? add to staging screen
-  // (different operator pressed?  change operator)
+  // (different operator pressed? change operator)
   // function calcClick(e) {
-  //   console.log("pressed");
+  // console.log("pressed");
   // }
 
   function calcInput(calcKey) {
@@ -88,41 +87,46 @@
     }
 
     if (/[0-9*+-./]/.test(calcKey)) {
-      staging += (calcKey);
-      screen.innerText = staging;
+      if (screen.innerText == '0') {
+        console.log("ok");
+        staging = calcKey;
+        screen.innerText = staging;
+      } else {
+        staging += calcKey;
+        screen.innerText = staging;
+      }
     }
   }
 
-  //Using Event Delegation:  grab container, then check which element inside is clicked
-  document.getElementById("calc-container").addEventListener("click", function(e) {
-    if (e.target && e.target.nodeName == "DIV") {
-      calcInput(e.target.id);
-      // console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
-    }
-  });
+    //Using Event Delegation: grab container, then check which element inside is clicked
+    document.getElementById("calc-container").addEventListener("click", function(e) {
+      if (e.target && e.target.nodeName == "DIV") {
+        calcInput(e.target.id);
+      }
+    });
 
-  // other students using:
-  // buttons[i].onclick = function () {
-  //   let button = this.innerHTML;
-  // }
-  //
-  // // eval
+    // other students using:
+    // buttons[i].onclick = function () {
+    // let button = this.innerHTML;
+    // }
+    //
+    // // eval
 
-  // function playSound(e) {
-  //   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  //   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-  //   if (!audio) return;
-  //
-  //   key.classList.add('playing');
-  //   audio.currentTime = 0;
-  //   audio.play();
+    // function playSound(e) {
+    // const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    // const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    // if (!audio) return;
+    //
+    // key.classList.add('playing');
+    // audio.currentTime = 0;
+    // audio.play();
 
-  // const buttons = Array.from(document.querySelectorAll('.numButtons'));
-  // buttons.forEach(button => button.addEventListener('click', calcClick));
+    // const buttons = Array.from(document.querySelectorAll('.numButtons'));
+    // buttons.forEach(button => button.addEventListener('click', calcClick));
 
-  // const keys = Array.from(document.querySelectorAll('.key'));
-  // keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  // window.addEventListener('keydown', playSound);
+    // const keys = Array.from(document.querySelectorAll('.key'));
+    // keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    // window.addEventListener('keydown', playSound);
 </script>
 
 </html>
